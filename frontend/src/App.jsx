@@ -18,48 +18,48 @@ function NetworkAwareRoutes() {
   const [error, setError] = useState(false);
   const location = useLocation();
 
-  useEffect(() => {
-    let isMounted = true;
+  // useEffect(() => {
+  //   let isMounted = true;
 
-    (async () => {
-      const { error: err, slowNetwork: isSlow } = await apiClient(
-        "/auth/session",
-         // "http://localhost:5000/wrong-url",
-        { method: "GET" },
-        1000
-      );
+  //   (async () => {
+  //     const { error: err, slowNetwork: isSlow } = await apiClient(
+  //       "/auth/session",
+  //        // "http://localhost:5000/wrong-url",
+  //       { method: "GET" },
+  //       1000
+  //     );
 
-      if (!isMounted) return;
+  //     if (!isMounted) return;
 
-      if (!navigator.onLine) {
-        setError(true);
-        setSlowNetwork(false);
-        return;
-      }
+  //     if (!navigator.onLine) {
+  //       setError(true);
+  //       setSlowNetwork(false);
+  //       return;
+  //     }
 
-      if (isSlow) {
-        setSlowNetwork(true);
-        setError(false);
-        setTimeout(() => {
-          if (isMounted) setSlowNetwork(false);
-        }, 3000);
-        return;
-      }
+  //     if (isSlow) {
+  //       setSlowNetwork(true);
+  //       setError(false);
+  //       setTimeout(() => {
+  //         if (isMounted) setSlowNetwork(false);
+  //       }, 3000);
+  //       return;
+  //     }
 
-      if (err) {
-        setError(true);
-        setSlowNetwork(false);
-        return;
-      }
+  //     if (err) {
+  //       setError(true);
+  //       setSlowNetwork(false);
+  //       return;
+  //     }
 
-      setError(false);
-      setSlowNetwork(false);
-    })();
+  //     setError(false);
+  //     setSlowNetwork(false);
+  //   })();
 
-    return () => {
-      isMounted = false;
-    };
-  }, [location.pathname]); // 🔁 Detect on every route change
+  //   return () => {
+  //     isMounted = false;
+  //   };
+  // }, [location.pathname]); // 🔁 Detect on every route change
 
   return (
     <>
