@@ -5,6 +5,7 @@ import React, { useState } from "react";
 import { useEffect } from "react";
 import { categoryMapping } from "../components/Dropdown";
 import { fetchWithAuth } from "../utils/api";
+import { API_ENDPOINTS } from "../constants/apiRoutes";
 
 const History = () => {
   const navigate = useNavigate();
@@ -23,7 +24,7 @@ const History = () => {
 
   const fetchTransactions = async () => {
     try {
-      const data = await fetchWithAuth("/transactions");
+      const data = await fetchWithAuth(API_ENDPOINTS.GET_TRANSACTIONS);
       setTransactions(data);
     } catch (err) {
       console.error("Failed to fetch transactions:", err);
@@ -33,8 +34,10 @@ const History = () => {
     if (!selectedTransaction) return;
 
     try {
+      const url = API_ENDPOINTS.GET_TRANSACTION_DETAIL(selectedTransaction.transaction_id);
+      const data = await fetchWithAuth(url);
       const res = await fetch(
-        `${API_BASE_URL}/api/transactions/${selectedTransaction.transaction_id}`,
+        `${import.meta.env.VITE_API_BASE_URL}/api${url}`,
         {
           method: "DELETE",
           headers: {

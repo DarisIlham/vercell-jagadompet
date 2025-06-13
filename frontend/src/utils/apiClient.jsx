@@ -7,7 +7,10 @@
  * @param {Object} options - Fetch config (method, headers, body, etc).
  * @param {number} timeoutMs - Timeout in milliseconds (default 5000ms).
  * @returns {Promise<{ data?: any, error?: string, slowNetwork?: boolean }>}
+ * 
  */
+
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 export async function apiClient(url, options = {}, timeoutMs = 5000) {
   const controller = new AbortController();
   const timeoutId = setTimeout(() => controller.abort(), timeoutMs);

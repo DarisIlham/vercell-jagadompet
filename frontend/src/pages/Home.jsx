@@ -8,6 +8,7 @@ import { useNavigate } from "react-router-dom";
 import { categoryMapping } from "../components/Dropdown";
 import Chart from "react-apexcharts";
 import { fetchWithAuth } from "../utils/api";
+import { API_ENDPOINTS } from "../constants/apiRoutes";
 
 const DashboardPage = () => {
   const navigate = useNavigate();
@@ -58,7 +59,7 @@ const DashboardPage = () => {
   useEffect(() => {
     const fetchTransactions = async () => {
       try {
-        const data = await fetchWithAuth("/transactions");
+        const data = await fetchWithAuth(API_ENDPOINTS.GET_TRANSACTIONS);
         setTransactions(data);
 
         // Calculate totals

@@ -16,9 +16,9 @@ connectDB();
 app.use(cors());
 app.use(express.json());
 
-app.use("/api/auth", authRoutes);
-app.use("/api", profileRoutes)
-app.use("/api/transactions", transactionRoutes);
-app.use("/api/dashboard", dashboardRoutes);
+app.use("/api/auth", authRoutes);             // untuk login, register, logout, refresh token
+app.use("/api/users", profileRoutes);         // untuk profil user: detail, update, session
+app.use("/api/transactions", transactionRoutes); // untuk transaksi: buat, baca, edit, hapus
+app.use("/api/dashboard", dashboardRoutes);   // untuk ringkasan statistik, chart, dsb
 
 export default app;
