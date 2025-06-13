@@ -1,5 +1,5 @@
-// src/constants/apiRoutes.js
-export const API_ENDPOINTS = {
+// src/constants/apiRoutes.jsx
+const API_ENDPOINTS = {
   // Auth
   LOGIN: "/auth/login",
   REGISTER: "/auth/register",
@@ -13,6 +13,8 @@ export const API_ENDPOINTS = {
   // Transactions
   GET_TRANSACTIONS: "/transactions",
   CREATE_TRANSACTION: "/transactions/create",
+  GET_TRANSACTION_DETAIL: (id) => `/transactions/${id}`,
+  DELETE_TRANSACTION: (id) => `/transactions/${id}`,
 
   // Dashboard
   DASHBOARD_SUMMARY: "/dashboard/summary",
