@@ -13,7 +13,6 @@ import Calendar from "react-calendar";
 import "react-calendar/dist/Calendar.css"; // Untuk styling kalender
 import { useEffect } from "react";
 import { fetchWithAuth } from "../utils/api";
-import { API_ENDPOINTS } from "../constants/apiRoutes";
 
 const TransactionDetailPage = () => {
   const [amount, setAmount] = useState("");
@@ -246,7 +245,7 @@ const TransactionDetailPage = () => {
               };
 
               try {
-                const result = await fetchWithAuth(API_ENDPOINTS.GET_TRANSACTIONS, {
+                const result = await fetchWithAuth("/transactions", {
                   method: "POST",
                   body: JSON.stringify(payload),
                 });
