@@ -1,4 +1,7 @@
-import app from '../app.js';
-import serverless from 'serverless-http';
+import app from "../app.js"; // file utama Express-mu
+import { createServer } from "http";
 
-export const handler = serverless(app);
+export default function handler(req, res) {
+  const server = createServer(app);
+  server.emit("request", req, res);
+}
