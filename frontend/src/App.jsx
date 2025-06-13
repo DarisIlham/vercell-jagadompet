@@ -23,7 +23,7 @@ function NetworkAwareRoutes() {
 
     (async () => {
       const { error: err, slowNetwork: isSlow } = await apiClient(
-        "/api/auth",
+        "/auth/session",
          // "http://localhost:5000/wrong-url",
         { method: "GET" },
         1000
