@@ -109,19 +109,21 @@ import { apiClient } from "../src/utils/apiClient.jsx";
 
 function App() {
   return (
-    <Routes>
-      <Route path="/login" element={<LoginPage />} />
-      <Route path="/" element={<WelcomeinPage />} />
-      <Route path="/dash" element={<DashboardPage />} />
-      <Route path="/view" element={<ViewPage />} />
-      <Route path="/sign" element={<SignPage />} />
-      <Route path="/edit" element={<EditPage />} />
-      <Route path="/logout" element={<LogoutPage />} />
-      <Route path="/history" element={<HistoryPage />} />
-      <Route path="/list" element={<ListPage />} />
-      <Route path="/incinput" element={<InputPage />} />
-      <Route path="/expinput" element={<InputexPage />} />
-    </Routes>
+    <Router>
+      <Routes>
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/" element={<WelcomeinPage />} />
+        <Route path="/dash" element={<DashboardPage />} />
+        <Route path="/view" element={<ViewPage />} />
+        <Route path="/sign" element={<SignPage />} />
+        <Route path="/edit" element={<EditPage />} />
+        <Route path="/logout" element={<LogoutPage />} />
+        <Route path="/history" element={<HistoryPage />} />
+        <Route path="/list" element={<ListPage />} />
+        <Route path="/incinput" element={<InputPage />} />
+        <Route path="/expinput" element={<InputexPage />} />
+      </Routes>
+    </Router>
   );
 }
 
