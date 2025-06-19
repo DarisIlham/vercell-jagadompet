@@ -13,7 +13,10 @@ const app = express();
 
 connectDB();
 
-app.use(cors());
+app.use(cors({
+  origin: "https://vercell-jagadompet.vercel.app",
+  credentials: true
+}));
 app.use(express.json());
 
 app.use("/api/auth", authRoutes);             // untuk login, register, logout, refresh token
