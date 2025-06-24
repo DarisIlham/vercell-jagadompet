@@ -109,7 +109,7 @@ import { apiClient } from "../src/utils/apiClient.jsx";
 
 function App() {
   return (
-    <Router>
+    <Router basename="/">
       <Routes>
         <Route path="/login" element={<LoginPage />} />
         <Route path="/" element={<WelcomeinPage />} />
