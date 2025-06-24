@@ -21,10 +21,7 @@ const Carousel = () => {
     "Setup your budget for each category so you in control",
   ];
 
-  const handleSign = (e) => {
-    e.preventDefault();
-    navigate("/sign");
-  };
+
   const handleLogin = (e) => {
     navigate("/login");
   };
@@ -70,13 +67,7 @@ const Carousel = () => {
       </div>
       {/* No button to transition */}
       <div className="w-full flex  justify-center mt-[38px]">
-        <button
-          type="submit"
-          className="text-[18px] leading-[100%] bg-[#42AB39] hover:bg-white hover:text-black text-white w-[343px] h-[56px] py-[8px] px-[16px] gap-[10px] rounded-[16px] font-semibold"
-          onClick={handleSign}
-        >
-          Sign Up
-        </button>
+  
       </div>
       <div className="w-full flex justify-center mt-[16px]">
         <button

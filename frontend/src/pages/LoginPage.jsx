@@ -11,10 +11,7 @@ const LoginPage = () => {
   const [showPassword, setShowPassword] = useState(false);
   const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
-  const handleSign = (e) => {
-    e.preventDefault();
-    navigate("/sign");
-  };
+  
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -101,12 +98,7 @@ const LoginPage = () => {
             >
               Login
             </button>
-            <div className="text-center text-[#91919F] cursor-pointer">
-              Don't have an account yet?{" "}
-              <a className="text-[#42AB39] underline" onClick={handleSign}>
-                Sign Up
-              </a>
-            </div>
+           
           </form>
         </div>
       </div>

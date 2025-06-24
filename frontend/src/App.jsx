@@ -7,7 +7,7 @@ import {
 import WelcomeinPage from "./pages/WelcomePage.jsx";
 import LoginPage from "./pages/LoginPage.jsx";
 import ViewPage from "./pages/view.jsx";
-import SignPage from "./pages/SignPage.jsx";
+// import SignPage from "./pages/SignPage.jsx";
 import LogoutPage from "./pages/LogOut.jsx";
 import DashboardPage from "./pages/Dashboard.jsx";
 import EditPage from "./pages/EditPage.jsx";
@@ -115,7 +115,7 @@ function App() {
         <Route path="/" element={<WelcomeinPage />} />
         <Route path="/dash" element={<DashboardPage />} />
         <Route path="/view" element={<ViewPage />} />
-        <Route path="/sign" element={<SignPage />} />
+        {/* <Route path="/sign" element={<SignPage />} /> */}
         <Route path="/edit" element={<EditPage />} />
         <Route path="/logout" element={<LogoutPage />} />
         <Route path="/history" element={<HistoryPage />} />
