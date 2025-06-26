@@ -157,7 +157,7 @@ const History = () => {
               <div className="w-[24px] h-[24px] flex items-center justify-center mt-[1px]">
                 <img src={down} className="mr-[6px] my-2" alt="Month" />
               </div>
-              <p>May</p>
+              <p>July</p>
             </button>
           </span>
         </div>

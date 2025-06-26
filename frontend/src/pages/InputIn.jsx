@@ -24,9 +24,9 @@ const TransactionDetailPage = () => {
   const [category, setCategory] = useState("");
   const token = localStorage.getItem("token");
   const [description, setDescription] = useState("");
-  const todayStr = new Date().toISOString().split('T')[0];
+  const todayStr = new Date().toISOString().split("T")[0];
   const [date, setDate] = useState("");
-  
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const navigate = useNavigate();
   const backSign = (e) => {
@@ -71,14 +71,14 @@ const TransactionDetailPage = () => {
     setShowCalendar(!showCalendar);
   };
 
-const handleDateSelect = (date) => {
-  if (date > new Date()) {
-    setSelectedDate(new Date());
-  } else {
-    setSelectedDate(date);
-  }
-  setShowCalendar(false);
-};
+  const handleDateSelect = (date) => {
+    if (date > new Date()) {
+      setSelectedDate(new Date());
+    } else {
+      setSelectedDate(date);
+    }
+    setShowCalendar(false);
+  };
 
   const handleCategoryChange = (e) => {
     setCategory(e.target.value);
@@ -238,7 +238,6 @@ const handleDateSelect = (date) => {
               const numericAmount = parseInt(amount.replace(/\./g, ""), 10);
 
               const payload = {
-
                 type: "income",
                 category: selectedCategory,
                 amount: numericAmount,
@@ -247,6 +246,7 @@ const handleDateSelect = (date) => {
               };
 
               try {
+                setIsSubmitting(true);
                 const result = await fetchWithAuth("/transactions", {
                   method: "POST",
 
@@ -258,6 +258,8 @@ const handleDateSelect = (date) => {
               } catch (err) {
                 console.error("Request failed:", err);
                 alert(err.message);
+              } finally {
+                setIsSubmitting(false);
               }
             }}
           >
@@ -311,6 +313,13 @@ const handleDateSelect = (date) => {
                 </span>
               </div>
             </div>
+          </div>
+        </div>
+      )}
+      {isSubmitting && (
+        <div className="fixed inset-0 bg-black bg-opacity-30 z-50 flex justify-center items-center">
+          <div className="bg-white px-6 py-4 rounded-lg shadow text-[#00C153] font-bold text-lg">
+            Processing...
           </div>
         </div>
       )}

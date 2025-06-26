@@ -14,8 +14,8 @@ const app = express();
 connectDB();
 
 app.use(cors({
-  origin: "https://fundraising-blue.vercel.app",
-  credentials: true
+  // origin: "https://fundraising-blue.vercel.app",
+  // credentials: true
 }));
 app.use(express.json());
 

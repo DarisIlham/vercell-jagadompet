@@ -29,6 +29,7 @@ const TransactionDetailPage = () => {
   const [description, setDescription] = useState("");
   const todayStr = new Date().toISOString().split('T')[0];
   const [date, setDate] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const navigate = useNavigate();
   const backSign = (e) => {
@@ -245,6 +246,7 @@ const TransactionDetailPage = () => {
               };
 
               try {
+                setIsSubmitting(true);
                 const result = await fetchWithAuth("/transactions", {
                   method: "POST",
                   body: JSON.stringify(payload),
@@ -256,6 +258,9 @@ const TransactionDetailPage = () => {
               } catch (err) {
                 console.error("Request failed:", err);
                 alert(err.message);
+              }
+              finally {
+                setIsSubmitting(false);
               }
             }}
           >
@@ -349,6 +354,13 @@ const TransactionDetailPage = () => {
                 </span>
               </div>
             </div>
+          </div>
+        </div>
+      )}
+      {isSubmitting && (
+        <div className="fixed inset-0 bg-black bg-opacity-30 z-50 flex justify-center items-center">
+          <div className="bg-white px-6 py-4 rounded-lg shadow text-[#00C153] font-bold text-lg">
+            Processing...
           </div>
         </div>
       )}
